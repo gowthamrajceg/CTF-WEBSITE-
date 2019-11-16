@@ -1,0 +1,37 @@
+You can host your Angular app anywhere and still take advantage of the Firebase backend, but nothing is easier than hosting it on Firebase directly. After some initial configuration, deploying updates to your app can be handled with a single command.
+
+Building the Production Code
+ng build --prod
+Running the ng build command will compile and minify your code in a single package in the dist/ folder. You could drop the contents of this directory into virtually any static website hosting platform or even an S3 bucket and you’re site would be ready to serve traffic.
+
+Deploying to Firebase
+Install
+First, make sure you have the firebase tools package installed.
+
+npm install -g firebase-tools
+Second, log into your existing firebase account. You should have already created a firebase project for your production app. If not, create a new project now.
+
+firebase login
+Initialize
+Third, initialize the project. You will only need to go through this process once. Make sure you are in the top level directory of your angular app.
+
+firebase init command for angular deployment You should see this after running firebase init from the command line.
+
+firebase init
+For the most part, you can stick with the default settings, except for the following questions:
+
+
+Choose hosting on the first question.
+
+Change public folder to dist/your-app-name when asked (it defaults to public).
+
+Configure as single page app? Yes
+
+If firebase asks to overwrite your index.html file, just say NO.
+
+Deploy
+Finally, deploy the app.
+
+firebase deploy
+If all went well, your app should be alive and well on the firebase project URL.
+
